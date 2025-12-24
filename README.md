@@ -1,17 +1,13 @@
 # Multi-Product Supply Chain Optimization for Energy Systems
 
+<img src="Figures/preview.png" alt="Energy system coordinated market framework" width="100%"/>
+
 ## Overview
 This repository contains the implementation of a **coordinated market-clearing reformulation of the EnergyScope energy system model**, integrating a **spatio-temporal multi-product supply chain (SC) framework** to analyze stakeholder interaction, demand elasticity, and endogenous price formation in multi-sector energy systems.
 
 Instead of assuming a central planner that minimizes total system cost under fixed demand, the model represents **producers, conversion technologies, storage units, and consumers as independent, profit-seeking stakeholders**. These stakeholders interact through supply and demand bids and are coordinated by an independent system operator that clears the market by maximizing social welfare.
 
 The framework preserves the economic properties of competitive market equilibrium and enables explicit analysis of price formation in highly renewable, decarbonized energy systems.
-
-## Coordinated Market Formulation
-
-![Coordinated market clearing structure](Figures/CoordinatedMarket.svg)
-
-*Figure: Illustration of the coordinated market-clearing formulation with profit-seeking stakeholders coordinated by an independent system operator.*
 
 ---
 
