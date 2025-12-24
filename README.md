@@ -74,7 +74,7 @@ This repository accompanies the semester project:
 Zürich, December 2025
 
 The full methodological description, mathematical formulation, and results are documented in the
-<a href="3_Report/ReportKP.pdfs">
+<a href="3_Report/ReportKP.pdf">
 project report
 </a>.
 
