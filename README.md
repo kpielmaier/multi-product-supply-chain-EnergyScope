@@ -73,7 +73,10 @@ This repository accompanies the semester project:
 **“Multi-Product Supply Chain Optimization for Energy Systems”**  
 Zürich, December 2025
 
-The full methodological description, mathematical formulation, and results are documented in the project report :contentReference[oaicite:0]{index=0}.
+The full methodological description, mathematical formulation, and results are documented in the
+<a href="multi-product-supply-chain-EnergyScope/3_Report/ReportKP.pdf">
+project report
+</a>.
 
 ---
 
