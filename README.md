@@ -1,4 +1,4 @@
-# Multi-Product Supply Chain Market Reformulation of EnergyScope
+# Multi-Product Supply Chain Optimization for Energy Systems
 
 ## Overview
 This repository contains the implementation of a **coordinated market-clearing reformulation of the EnergyScope energy system model**, integrating a **spatio-temporal multi-product supply chain (SC) framework** to analyze stakeholder interaction, demand elasticity, and endogenous price formation in multi-sector energy systems.
