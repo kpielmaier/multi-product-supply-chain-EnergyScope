@@ -7,6 +7,12 @@ Instead of assuming a central planner that minimizes total system cost under fix
 
 The framework preserves the economic properties of competitive market equilibrium and enables explicit analysis of price formation in highly renewable, decarbonized energy systems.
 
+## Coordinated Market Formulation
+
+![Coordinated market clearing structure](Figures/CoordinatedMarket.svg)
+
+*Figure: Illustration of the coordinated market-clearing formulation with profit-seeking stakeholders coordinated by an independent system operator.*
+
 ---
 
 ## Key Features
