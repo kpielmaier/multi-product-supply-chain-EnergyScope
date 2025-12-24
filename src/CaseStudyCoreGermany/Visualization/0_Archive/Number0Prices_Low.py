@@ -1,0 +1,136 @@
+import os
+import json
+import csv
+import matplotlib.pyplot as plt
+import pandas as pd
+
+plt.rcParams.update({
+    "text.usetex": False,
+    "font.family": "sans-serif",
+    "font.sans-serif": ["Arial", "Helvetica", "DejaVu Sans"],
+    "font.size": 12,
+})
+
+script_dir = os.path.dirname(os.path.abspath(__file__))
+
+# === LOW RESULTS FOLDERS ONLY ===
+data_normal = os.path.join(script_dir, "..", "DataLowPrice")
+pareto_normal = os.path.join(script_dir, "..", "ResultsLowPrice", "Figures", "Pareto")
+
+elasticity_files = {
+    "elast_10pct":  "pareto_SW_vs_GWP_elast_10pct.json",
+    "elast_5pct":   "pareto_SW_vs_GWP_elast_5pct.json",
+    "elast_2_5pct": "pareto_SW_vs_GWP_elast_2_5pct.json",
+    "demand_fixed": "pareto_SW_vs_GWP_demand_fixed.json",
+}
+
+# === Load JSONs ===
+def load_pareto_jsons(folder):
+    result = {}
+    for tag, f in elasticity_files.items():
+        path = os.path.join(folder, f)
+        if not os.path.exists(path):
+            print(f"[WARNING] Missing: {path}")
+            continue
+        with open(path, "r") as fh:
+            result[tag] = json.load(fh)
+    return result
+
+fronts_normal = load_pareto_jsons(pareto_normal)
+
+# === Colors ===
+available_colors = plt.cm.tab10.colors
+elasticity_colors = {
+    "elast_10pct":  available_colors[0],
+    "elast_5pct":   available_colors[1],
+    "elast_2_5pct": available_colors[2],
+}
+color_normal_fixed = "black"
+
+# ============================================================================
+# === Load electricity price rows ===
+# ============================================================================
+def load_price_file(price_csv_path):
+    """Loads price_df with only electricity rows + hours_rep = mult * t_op."""
+    if not os.path.exists(price_csv_path):
+        return None
+
+    df = pd.read_csv(price_csv_path)
+
+    df = df[df["p"] == "ELECTRICITY"].copy()  # Only electricity
+
+    if df.empty:
+        return None
+
+    df["hours_rep"] = df["mult"] * df["t_op"]
+    return df
+
+def count_zero_price_hours(price_csv_path, tol=1e-5):
+    df = load_price_file(price_csv_path)
+    if df is None:
+        return None
+    return df.loc[df["price_€_per_MWh"].abs() < tol, "hours_rep"].sum()
+
+# === Helper: build folder name ===
+def folder_from_point(tag, point):
+    eps = point.get("epsilon", None)
+    if eps is None:
+        return None
+    if isinstance(eps, str):  # case: "NONE"
+        return f"{tag}_eps_{eps}"
+    eps_str = f"{float(eps):.2f}"
+    return f"{tag}_eps_{eps_str}"
+
+# === Plot NORMAL ONLY (zero-price hours only) ===
+fig, ax = plt.subplots(figsize=(10, 6))
+
+def process_normal_scenario(fronts, data_folder):
+    for tag, pts in fronts.items():
+        gwps = []
+        zero_hours = []
+
+        for p in pts:
+            folder = folder_from_point(tag, p)
+            if folder is None:
+                continue
+
+            price_csv = os.path.join(data_folder, folder, "price.csv")
+            print("Checking:", price_csv, "Exists:", os.path.exists(price_csv))
+
+            z = count_zero_price_hours(price_csv)
+            if z is None:
+                continue
+
+            gwps.append(p["TotalGWP"])
+            zero_hours.append(z)
+
+        if len(gwps) == 0:
+            continue
+
+        color = elasticity_colors.get(tag, color_normal_fixed)
+
+        # Zero-price hours curve only
+        ax.plot(
+            gwps, zero_hours,
+            marker="o",
+            linestyle="-",
+            color=color,
+            label=f"{tag} (Low)"
+        )
+
+process_normal_scenario(fronts_normal, data_normal)
+
+# === Aesthetics ===
+ax.set_xlabel(r"Total GWP [ktCO$_2$/year]")
+ax.set_ylabel("Number of zero price hours per year")
+ax.grid(True)
+ax.legend()
+
+# === Save ===
+save_normal = os.path.join(pareto_normal, "ZeroPriceHours_vs_GWP_LowOnly.png")
+os.makedirs(os.path.dirname(save_normal), exist_ok=True)
+plt.savefig(save_normal, dpi=250)
+plt.close()
+
+print("Saved plot to:")
+print(" ", save_normal)
