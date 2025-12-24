@@ -63,7 +63,7 @@ Results show that demand elasticity stabilizes prices and mitigates extreme pric
 - Modeling language: AMPL
 - Solver: Gurobi
 - Energy system model: EnergyScope
-- Data: Derived from PyPSA-Eur workflows adapted for EnergyScope
+- Data: Derived from PyPSA-Eur workflows adapted for EnergyScop
 
 ---
 
@@ -74,7 +74,7 @@ This repository accompanies the semester project:
 Zürich, December 2025
 
 The full methodological description, mathematical formulation, and results are documented in the
-<a href="multi-product-supply-chain-EnergyScope/3_Report/ReportKP.pdf">
+<a href="3_Report/ReportKP.pdfs">
 project report
 </a>.
 
