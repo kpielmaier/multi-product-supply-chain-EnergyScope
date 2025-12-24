@@ -1,5 +1,3 @@
-<img src="Figures/CoordinatedMarket.svg" alt="Coordinated market clearing framework" width="100%"/>
-
 # Multi-Product Supply Chain Market Reformulation of EnergyScope
 
 ## Overview
@@ -8,6 +6,8 @@ This repository contains the implementation of a **coordinated market-clearing r
 Instead of assuming a central planner that minimizes total system cost under fixed demand, the model represents **producers, conversion technologies, storage units, and consumers as independent, profit-seeking stakeholders**. These stakeholders interact through supply and demand bids and are coordinated by an independent system operator that clears the market by maximizing social welfare.
 
 The framework preserves the economic properties of competitive market equilibrium and enables explicit analysis of price formation in highly renewable, decarbonized energy systems.
+
+<img src="Figures/CoordinatedMarket.svg" alt="Coordinated market clearing framework" width="100%"/>
 
 ---
 
