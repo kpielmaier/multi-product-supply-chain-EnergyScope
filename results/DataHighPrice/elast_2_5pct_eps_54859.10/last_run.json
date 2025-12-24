@@ -1,0 +1,8 @@
+{
+    "TotalCost": 53881.43910377286,
+    "TotalGWP": 54859.09611168021,
+    "SocialWelfare": 7113439.604301357,
+    "use_epsilon": 1,
+    "epsilon_value": 54859.0961116841,
+    "solve_time": 22.829094886779785
+}

@@ -1,0 +1,2 @@
+TotalCost,TotalGWP,python_wall_clock_time,gurobi_solve_time,solver_status
+52036.17613331976,109325.283006356,20.047789812088013,,solved

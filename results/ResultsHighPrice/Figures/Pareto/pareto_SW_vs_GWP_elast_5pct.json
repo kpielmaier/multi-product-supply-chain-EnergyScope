@@ -1,0 +1,52 @@
+[
+    {
+        "TotalCost": 64034.72237302602,
+        "TotalGWP": 0.0,
+        "SocialWelfare": 6853700.275521041,
+        "use_epsilon": 1,
+        "epsilon_value": 0,
+        "solve_time": 21.859338998794556,
+        "epsilon": 0.0,
+        "elasticity_tag": "elast_5pct"
+    },
+    {
+        "TotalCost": 55178.98713674878,
+        "TotalGWP": 27737.54561904278,
+        "SocialWelfare": 6863362.330879611,
+        "use_epsilon": 1,
+        "epsilon_value": 27737.5456190442,
+        "solve_time": 26.916565656661987,
+        "epsilon": 27737.5456190442,
+        "elasticity_tag": "elast_5pct"
+    },
+    {
+        "TotalCost": 54254.60619672185,
+        "TotalGWP": 55475.09123808463,
+        "SocialWelfare": 6864286.711819404,
+        "use_epsilon": 1,
+        "epsilon_value": 55475.0912380884,
+        "solve_time": 24.807459592819214,
+        "epsilon": 55475.0912380884,
+        "elasticity_tag": "elast_5pct"
+    },
+    {
+        "TotalCost": 53513.14794488708,
+        "TotalGWP": 83212.63685700812,
+        "SocialWelfare": 6865127.592812076,
+        "use_epsilon": 1,
+        "epsilon_value": 83212.6368571326,
+        "solve_time": 21.60717797279358,
+        "epsilon": 83212.6368571326,
+        "elasticity_tag": "elast_5pct"
+    },
+    {
+        "TotalCost": 53370.87050555924,
+        "TotalGWP": 110950.1824761768,
+        "SocialWelfare": 6865343.1211921815,
+        "use_epsilon": 0,
+        "epsilon_value": 1000000000000,
+        "solve_time": 18.68455719947815,
+        "epsilon": null,
+        "elasticity_tag": "elast_5pct"
+    }
+]
